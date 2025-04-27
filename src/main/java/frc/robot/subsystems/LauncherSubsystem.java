@@ -1,0 +1,41 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
+package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
+public class LauncherSubsystem extends SubsystemBase {
+  /** Creates a new LauncherSubsystem. */
+  private final TalonSRX m_leftShooter = new TalonSRX (6);
+  private final TalonSRX m_rightShooter = new TalonSRX (19);
+  private final VictorSPX m_leftShooterAngle = new VictorSPX(18);
+  private final VictorSPX m_rightShooterAngle = new VictorSPX(7);
+  public LauncherSubsystem() {}
+
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
+
+  public void shoot(double power) {
+    m_leftShooter.set(ControlMode.PercentOutput,power);
+        m_rightShooter.set(ControlMode.PercentOutput,power);
+  }
+
+  public void shootMedium() {
+    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedMedium);
+        m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedMedium);
+  }
+
+  public void shootSlow() {
+    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedSlow);
+        m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedSlow);
+  }
+}
