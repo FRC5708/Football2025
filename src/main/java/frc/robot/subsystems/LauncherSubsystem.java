@@ -13,8 +13,8 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class LauncherSubsystem extends SubsystemBase {
   /** Creates a new LauncherSubsystem. */
-  private final TalonSRX m_leftShooter = new TalonSRX (6);
-  private final TalonSRX m_rightShooter = new TalonSRX (19);
+  private final TalonSRX m_leftShooter = new TalonSRX (5);
+  private final TalonSRX m_rightShooter = new TalonSRX (6);
   private final VictorSPX m_leftShooterAngle = new VictorSPX(18);
   private final VictorSPX m_rightShooterAngle = new VictorSPX(7);
   public LauncherSubsystem() {}
@@ -25,7 +25,7 @@ public class LauncherSubsystem extends SubsystemBase {
   }
 
   public void shoot(double power) {
-    m_leftShooter.set(ControlMode.PercentOutput,power);
+    m_leftShooter.set(ControlMode.PercentOutput,-power);
         m_rightShooter.set(ControlMode.PercentOutput,power);
   }
 
@@ -38,4 +38,5 @@ public class LauncherSubsystem extends SubsystemBase {
     m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedSlow);
         m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedSlow);
   }
+
 }

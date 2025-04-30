@@ -21,9 +21,9 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {}
     // This method will be called once per scheduler run
   public void drive(double left, double right) {
-    m_leftMotor1.set(ControlMode.PercentOutput, Math.pow(left, 3));
+    m_leftMotor1.set(ControlMode.PercentOutput, -Math.pow(left, 3));
     m_leftMotor2.set(ControlMode.PercentOutput, -Math.pow(left, 3)); //old follower wheel
     m_rightMotor3.set(ControlMode.PercentOutput, Math.pow(right, 3));
-    m_rightMotor4.set(ControlMode.PercentOutput, -Math.pow(right, 3)); //old follower wheel 
+    m_rightMotor4.set(ControlMode.PercentOutput, Math.pow(right, 3)); //old follower wheel 
   }
 }

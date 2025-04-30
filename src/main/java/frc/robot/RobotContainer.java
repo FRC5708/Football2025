@@ -5,11 +5,14 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
 import frc.robot.commands.defaultDrive;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ShootVeryFast;
+import frc.robot.commands.ShootFast;
+import frc.robot.commands.ShootMedium;
+import frc.robot.commands.ShootSlow;
+import frc.robot.commands.ShootStop;
 import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -24,6 +27,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_drive;
+  private final LauncherSubsystem m_launcher;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -33,7 +37,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     m_drive = new DriveSubsystem();
+    m_launcher = new LauncherSubsystem();
     m_drive.setDefaultCommand(new defaultDrive(m_drive, m_driverController.getLeftY(),m_driverController.getRightY()));
+    m_launcher.setDefaultCommand(new ShootStop(m_launcher));
     configureBindings();
   }
 
@@ -47,6 +53,10 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+    m_driverController.a().whileTrue(new ShootFast(m_launcher));
+    m_driverController.b().whileTrue(new ShootMedium(m_launcher));
+    m_driverController.y().whileTrue(new ShootSlow(m_launcher));
+    m_driverController.povDown().whileTrue(new ShootVeryFast(m_launcher));
   }
 
   /**
