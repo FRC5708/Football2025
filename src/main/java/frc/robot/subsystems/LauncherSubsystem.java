@@ -5,18 +5,18 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants;
+//import frc.robot.Constants;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+//import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class LauncherSubsystem extends SubsystemBase {
   /** Creates a new LauncherSubsystem. */
   private final TalonSRX m_leftShooter = new TalonSRX (5);
   private final TalonSRX m_rightShooter = new TalonSRX (6);
-  private final VictorSPX m_leftShooterAngle = new VictorSPX(18);
-  private final VictorSPX m_rightShooterAngle = new VictorSPX(7);
+  //private final VictorSPX m_leftShooterAngle = new VictorSPX(18);
+  //private final VictorSPX m_rightShooterAngle = new VictorSPX(7);
 
   public LauncherSubsystem() {}
 
