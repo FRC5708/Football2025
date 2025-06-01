@@ -29,14 +29,28 @@ public class LauncherSubsystem extends SubsystemBase {
         m_rightShooter.set(ControlMode.PercentOutput,power);
   }
 
-  public void shootMedium() {
-    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedMedium);
-        m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedMedium);
-  }
-
   public void shootSlow() {
     m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedSlow);
-        m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedSlow);
+    m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedSlow);
+  }
+
+  public void shootMedium() {
+    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedMedium);
+     m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedMedium);
+  }
+
+  public void shootFast() {
+    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedFast);
+    m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedFast);
+  }
+
+  public void shootVeryFast() {
+    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedVeryFast);
+        m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedVeryFast);
+  }
+
+  public void autoShoot(String speed) {
+    
   }
 
 }

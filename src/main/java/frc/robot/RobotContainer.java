@@ -52,6 +52,11 @@ public class RobotContainer {
    * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
    * joysticks}.
    */
+    /*private ShuffleboardTab tab = Shuffleboard.getTab("Drive");
+   private GenericEntry maxSpeed =
+      tab.add("Max Speed", 1)
+         .getEntry(); */
+
   private void configureBindings() {
     m_driverController.a().whileTrue(new ShootFast(m_launcher));
     m_driverController.b().whileTrue(new ShootMedium(m_launcher));
