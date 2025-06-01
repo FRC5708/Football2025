@@ -30,7 +30,7 @@ public class ShootMedium extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_launcher.shoot(Constants.LauncherConstants.speedMedium);
+    m_launcher.shoot(Constants.LauncherConstants.speedMedium, Constants.LauncherConstants.speedMedium*.95);
   }
 
   // Called once the command ends or is interrupted.

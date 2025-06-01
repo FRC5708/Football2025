@@ -17,6 +17,7 @@ public class LauncherSubsystem extends SubsystemBase {
   private final TalonSRX m_rightShooter = new TalonSRX (6);
   private final VictorSPX m_leftShooterAngle = new VictorSPX(18);
   private final VictorSPX m_rightShooterAngle = new VictorSPX(7);
+
   public LauncherSubsystem() {}
 
   @Override
@@ -24,29 +25,9 @@ public class LauncherSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void shoot(double power) {
-    m_leftShooter.set(ControlMode.PercentOutput,-power);
-        m_rightShooter.set(ControlMode.PercentOutput,power);
-  }
-
-  public void shootSlow() {
-    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedSlow);
-    m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedSlow);
-  }
-
-  public void shootMedium() {
-    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedMedium);
-     m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedMedium);
-  }
-
-  public void shootFast() {
-    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedFast);
-    m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedFast);
-  }
-
-  public void shootVeryFast() {
-    m_leftShooter.set(ControlMode.PercentOutput, -Constants.LauncherConstants.speedVeryFast);
-        m_rightShooter.set(ControlMode.PercentOutput, Constants.LauncherConstants.speedVeryFast);
+  public void shoot(double powerRight, double powerLeft) {
+    m_leftShooter.set(ControlMode.PercentOutput,-powerRight);
+    m_rightShooter.set(ControlMode.PercentOutput,powerLeft);
   }
 
   public void autoShoot(String speed) {

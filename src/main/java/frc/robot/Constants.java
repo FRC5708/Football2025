@@ -21,6 +21,7 @@ public final class Constants {
     public static final double speedFast = 0.69;
     public static final double speedMedium = 0.5;
     public static final double speedSlow = 0.35;
+    public static final double speedVerySlow = 0.10;
     public static final double speedNo = 0;
   }
 }

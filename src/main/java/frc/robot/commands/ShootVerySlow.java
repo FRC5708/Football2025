@@ -11,11 +11,11 @@ import frc.robot.Constants;
 import frc.robot.Constants.LauncherConstants;
 import frc.robot.subsystems.LauncherSubsystem;
 
-public class ShootFast extends Command {
+public class ShootVerySlow extends Command {
   /** Creates a new ShootFast. */
   LauncherSubsystem m_launcher;
 
-  public ShootFast(LauncherSubsystem launcher) {
+  public ShootVerySlow(LauncherSubsystem launcher) {
     m_launcher = launcher;
     addRequirements(m_launcher);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -30,7 +30,7 @@ public class ShootFast extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_launcher.shoot(Constants.LauncherConstants.speedFast, Constants.LauncherConstants.speedFast*.95);
+    m_launcher.shoot(Constants.LauncherConstants.speedVerySlow, Constants.LauncherConstants.speedVerySlow*.95);
   }
 
   // Called once the command ends or is interrupted.
