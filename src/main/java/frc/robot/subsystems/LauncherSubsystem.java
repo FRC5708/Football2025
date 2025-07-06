@@ -27,7 +27,7 @@ public class LauncherSubsystem extends SubsystemBase {
 
   public void shoot(double powerRight, double powerLeft) {
     m_leftShooter.set(ControlMode.PercentOutput,-powerRight);
-    m_rightShooter.set(ControlMode.PercentOutput,powerLeft);
+    m_rightShooter.set(ControlMode.PercentOutput,-powerLeft);//changed by george
   }
 
   public void autoShoot(String speed) {
