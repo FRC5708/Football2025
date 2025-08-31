@@ -11,6 +11,7 @@ import frc.robot.commands.ShootFast;
 import frc.robot.commands.ShootMedium;
 import frc.robot.commands.ShootSlow;
 import frc.robot.commands.ShootVerySlow;
+import frc.robot.commands.testMotor;
 import frc.robot.commands.actuatorIn;
 import frc.robot.commands.actuatorOut;
 import frc.robot.commands.ShootStop;
@@ -67,6 +68,8 @@ public class RobotContainer {
     m_driverController.b().whileTrue(new ShootMedium(m_launcher));
     m_driverController.y().whileTrue(new ShootSlow(m_launcher));
     m_driverController.x().whileTrue(new ShootVerySlow(m_launcher));
+
+    m_driverController.povCenter().whileTrue(new testMotor(m_launcher));
 
     m_driverController.rightBumper().whileTrue(new actuatorIn(m_autoLoader));
     m_driverController.leftBumper().whileTrue(new actuatorOut(m_autoLoader));

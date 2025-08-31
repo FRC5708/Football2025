@@ -11,10 +11,14 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 //import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+
 public class LauncherSubsystem extends SubsystemBase {
   /** Creates a new LauncherSubsystem. */
   private final TalonSRX m_leftShooter = new TalonSRX (5);
   private final TalonSRX m_rightShooter = new TalonSRX (6);
+  public final SparkMax m_testMotor = new SparkMax(7, MotorType.kBrushless);
   //private final VictorSPX m_leftShooterAngle = new VictorSPX(18);
   //private final VictorSPX m_rightShooterAngle = new VictorSPX(7);
 
@@ -29,6 +33,11 @@ public class LauncherSubsystem extends SubsystemBase {
     m_leftShooter.set(ControlMode.PercentOutput,-powerRight);
     m_rightShooter.set(ControlMode.PercentOutput,-powerLeft);//changed by george
   }
+
+  public void testMotor() {
+    m_testMotor.set(.10);
+  }
+
 
   public void autoShoot(String speed) {
     
